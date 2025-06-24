@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# Django migrations
+**/migrations/
+!**/migrations/__init__.py
+
+# SQLite DB (optional)
+*.sqlite3
+
+# VS Code settings
+.vscode/
+
+# macOS junk
+.DS_Store
+
+# Logs
+*.log
+
+# Test & coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Static/media files
+staticfiles/
+media/
+
+# dotenv files
+.env
+.env.*
+
+# Docker
+*.pid
+*.seed
+*.tar
+docker-compose.override.yml
+__docker__/
