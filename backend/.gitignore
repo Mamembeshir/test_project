@@ -47,3 +47,5 @@ media/
 *.tar
 docker-compose.override.yml
 __docker__/
+__pycache__/
+*.py[cod]

@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+from .models import ActivityLog
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError as DjangoValidationError
@@ -38,4 +40,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email','is_superuser')
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        ActivityLog.objects.create(user=self.user, activity_type='login')
+        return data
